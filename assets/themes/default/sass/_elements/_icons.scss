@@ -1,0 +1,107 @@
+/* Icons
+----------------------------------------------------------*/
+
+.icon {
+	position: relative;
+	display: inline-block;
+	font-size: 52px;
+	width: 72px;
+	vertical-align: middle;
+	margin-bottom: 3px;
+
+	&.icon-xs { font-size: 16px; width: 36px;  }
+	&.icon-sm { font-size: 28px; width: 48px;  }
+	&.icon-lg { font-size: 82px; width: 112px;  }
+	&.icon-xl { font-size: 144px; width: 164px;  }
+	&.icon-xxl { font-size: 208px; width: 240px;  }
+
+	&.icon-default {
+		@include opacity(0.15);
+	}
+	&.icon-grey { color: $color-grey-3; }
+
+	$k: 1;
+	@for $i from 1 through length($colorVersions)/2 {
+		$type: nth($colorVersions,$k);
+		$color: nth($colorVersions,$k+1);
+
+		&.icon-#{$type} {
+			color: $color;
+		}
+		$k: $k+2;
+	}
+	$k: 1;
+	@for $i from 1 through length($socialBrands)/2 {
+		$brand: nth($socialBrands,$k);
+		$color: nth($socialBrands,$k+1);
+
+		&.icon-#{$brand} {
+			color: $color;
+		}
+		$k: $k+2;
+	}
+
+	&.icon-square, &.icon-circle {
+		height: 72px;
+		font-size: 32px;
+		text-align: center;
+		color: #fff;
+
+		> * {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include translate3d(-50%,-50%,0);
+		}
+
+		&.icon-xs { height: 36px; font-size: 13px; }
+		&.icon-sm { height: 48px; font-size: 22px; }
+		&.icon-lg { height: 112px; font-size: 48px;  }
+		&.icon-xl { height: 164px; font-size: 78px;  }
+
+		&.icon-white { background-color: $color-white; color: $color-primary; }
+		&.icon-grey { background-color: $color-grey-2; }
+
+		$k: 1;
+		@for $i from 1 through length($colorVersions)/2 {
+			$type: nth($colorVersions,$k);
+			$color: nth($colorVersions,$k+1);
+
+			&.icon-#{$type} {
+				background-color: $color;
+			}
+			$k: $k+2;
+		}
+		$k: 1;
+		@for $i from 1 through length($socialBrands)/2 {
+			$brand: nth($socialBrands,$k);
+			$color: nth($socialBrands,$k+1);
+
+			&.icon-#{$brand} {
+				background-color: $color;
+			}
+			$k: $k+2;
+		}
+	}
+
+	&.icon-square {
+		@include border-radius(3px);
+	}
+
+	&.icon-circle {
+		@include border-radius(50%);
+	}
+
+}
+
+
+.i-before { margin-right: 8px; }
+.i-after { margin-left: 8px; }
+.i-before-after { margin-right: 8px; margin-left: 8px; }
+
+html[dir="rtl"] {
+	.i-before { margin-left: 8px; margin-right: 0; }
+	.i-after { margin-right: 8px; margin-left: 0; }
+}
+
+/* Colors */

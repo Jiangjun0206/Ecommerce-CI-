@@ -1,0 +1,84 @@
+/* Page Title
+----------------------------------------------------------*/
+
+.page-title {
+	position: relative;
+	font-family: $font-secondary;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	overflow: hidden;
+
+	h1 {
+		font-size: 36px;
+		letter-spacing: 0.2em;
+		margin-bottom: 0;
+		text-transform: uppercase;
+		font-family: $font-secondary;
+
+		@media #{$screen-xs} {
+			font-size: 28px;
+		}
+
+		> i {
+			position: relative;
+			top: 3px;
+			margin-right: 5px;
+		}
+	}
+
+	&.page-title-1 {
+		padding-top: 86px;
+		padding-bottom: 86px;
+
+		.breadcrumb {
+			float: right;
+			margin-top: 10px;
+
+			@media #{$screen-sm} {
+				float: none;
+			}
+		}
+	}
+
+	&.page-title-2 {
+		padding-top: 156px;
+		padding-bottom: 156px;
+	}
+
+	&.page-title-3 {
+		padding-top: 156px;
+		padding-bottom: 196px;
+
+		.breadcrumb-wrapper {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+
+			.breadcrumb {
+				padding: 14px 0px 16px;
+			}
+		}
+	}
+
+	&.page-title-4 {
+		padding-top: 86px;
+		padding-bottom: 86px;
+	}
+}
+
+.breadcrumb {
+	background: transparent;
+	display: inline-block;
+	text-transform: uppercase;
+	font-family: $font-secondary;
+	font-size: 11px;
+	margin-bottom: 0;
+	padding: 0;
+
+	> .active {
+		color: inherit;
+		@include opacity(0.4);
+	}
+}

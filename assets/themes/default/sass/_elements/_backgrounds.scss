@@ -1,0 +1,166 @@
+/* Backgrounds
+----------------------------------------------------------*/
+
+/* Image */
+
+.bg-image,
+.bg-parallax,
+.bg-slideshow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-size:  cover;
+	background-repeat: no-repeat; 
+	z-index: 0;
+}
+
+.bg-multiply {
+	mix-blend-mode: multiply;
+}
+
+.bg-slideshow {
+	.owl-wrapper-outer, .owl-wrapper, .owl-item {
+		height: 100%;
+		overflow: hidden;
+	}
+}
+
+.bg-image > img { display: none; }
+.bg-fixed { background-attachment: fixed; }
+
+/* Video */
+
+.bg-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.bg-video-placeholder { display: none; }
+
+.bg-image + *, .bg-parallax + *, .bg-video + * { position: relative; }
+
+/* Map */
+
+.bg-map {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	&.light-overlay:after,
+	&.dark-overlay:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		content: ' ';
+		@include transition(all 0.3s ease-out);
+	}
+
+	&.light-overlay:after {
+		background: rgba(255,255,255,0.5);
+	}
+	&.dark-overlay:after {
+		background: rgba(0,0,0,0.5);
+	}
+
+	&:hover:after {
+		visibility: hidden;
+		@include opacity(0);
+	}
+	
+	& + * {
+		position: relative;
+	}
+}
+
+/* Icon */
+
+.bg-icons {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	@include translate3d(0,-50%,0);
+	color: rgba($color-black,0.06);
+	text-align: center;
+	@include scale(15);
+
+	> * {
+		margin: 0 1px;
+		display: inline-block;
+	}
+
+	&.white {
+		color: $color-white;
+	}
+}
+
+.dark .bg-icons {
+	color: rgba($color-white,0.06);
+}
+
+/* Instatram */
+
+
+.bg-instagram-feed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	> a {
+		float: left;
+		width: 16.6666666%;
+		@include opacity(0.3);
+
+		&:hover {
+			@include opacity(0.6);
+		}
+
+		> img {
+			width: 100%;
+		}
+	}
+
+	& + * {
+		position: relative;
+	}
+}
+
+/* Colors */
+
+.bg-white { background-color: $color-white; }
+.bg-grey { background-color: $color-grey; }
+.bg-grey-dark { background-color: $color-grey-dark; }
+.bg-black { background-color: $color-black; }
+.bg-dark { background-color: $color-dark; }
+
+$k: 1;
+@for $i from 1 through length($colorVersions)/2 {
+	$type: nth($colorVersions,$k);
+	$color: nth($colorVersions,$k+1);
+
+	.bg-#{$type} {
+		background-color: $color;
+	}
+	$k: $k+2;
+}
+$k: 1;
+@for $i from 1 through length($socialBrands)/2 {
+	$type: nth($socialBrands,$k);
+	$color: nth($socialBrands,$k+1);
+
+	.bg-#{$type} {
+		background-color: $color;
+	}
+	$k: $k+2;
+}

@@ -1,0 +1,109 @@
+/* Side Panel
+----------------------------------------------------------*/
+
+#side-panel {
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 50vw;
+	z-index: 950;
+	visibility: hidden;
+	@include opacity(0);
+	@include transition(all 0.4s ease-out);
+	@include box-shadow(0px 0px 40px 0px rgba($color-black,0.2));
+	text-align: center;
+
+
+	@media #{$screen-xs} {
+		width: 100%;
+	}
+
+	&.right { 
+		right: 0; 
+		@include translateX(50px);
+	}
+	&.left { 
+		left: 0; 
+		@include translateX(-50px);
+	}
+
+	.side-panel-wrapper {
+		position: relative;
+		top: 50%;
+		@include translate3d(0,-50%,0);
+		width: 400px;
+		margin: 0 auto;
+		overflow: auto;
+		@include filter(blur(10px));
+		@include transition(all 0.4s ease-out);
+
+		@media #{$screen-sm} {
+			@include translate3d(0,0,0);
+			top: 0;
+			padding: 50px 20px 0;
+			height: 100vh;
+		}
+
+		@media #{$screen-xs} {
+			width: 100%;
+		}
+	}
+
+	.close {
+		position: absolute;
+		top: 25px;
+		right: 65px;
+
+		@media #{$screen-xs} {
+			right: 25px;
+		}
+	}
+
+}
+.side-panel-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	@include opacity(0);
+	visibility: hidden;
+	z-index: 940;
+	@include transition(all 0.6s ease-out);
+}
+
+.side-panel-open {
+	#side-panel {
+		@include translateX(0);
+		@include opacity(1);
+		visibility: visible;
+
+		.side-panel-wrapper {
+			@include filter(blur(0px));
+		}
+	}
+	.side-panel-overlay {
+		visibility: visible;
+		@include opacity(0.4);
+	}
+}
+
+.nav-panel {
+	> li {
+		> a {
+			font-family: $font-secondary;
+			font-weight: 500;
+			text-transform: uppercase;
+			font-size: 14px;
+			@include opacity(0.6);
+
+			&:hover, &:focus {
+				background: transparent;
+				@include opacity(1);
+
+			}
+		}
+	}
+}

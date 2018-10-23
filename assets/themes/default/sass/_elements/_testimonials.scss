@@ -1,0 +1,124 @@
+
+/* Testimonials
+----------------------------------------------------------*/
+	
+.testimonial {
+	margin-bottom: 30px;
+
+	&.testimonial-1 {
+		margin-bottom: 40px;
+		.quote {
+			font-size: 30px;
+			line-height: 1.2;
+			margin-bottom: 25px;
+			font-weight: $headings-weight;
+		}
+		.author {
+			border-top: 1px solid $color-line-dark;
+			padding-top: 25px;
+
+			.name {
+				font-family: $font-secondary;
+				font-size: 14px;
+				display: block;
+				font-weight: bold;
+			}
+
+			&.with-image {
+				position: relative;
+				margin-top: 30px;
+				padding-left: 74px;
+				img {
+					position: absolute;
+					top: 18px;
+					left: 0;
+					width: 58px;
+					height: 58px;
+					@include border-radius(50%);
+				}
+			}
+		}
+	}
+	&.testimonial-2 {
+		.quote {
+			position: relative;
+			font-size: 20px;
+			font-weight: 300;
+			padding: 25px;
+			line-height: 1.2;
+			background-color: $color-grey;
+			@include border-radius(3px);
+
+			&:after {
+				position: absolute;
+				top: 100%;
+				right: 20px;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 38px 38px 0;
+				border-color: transparent $color-grey transparent transparent;
+				@include scaleX(0.4);
+				content: ' ';
+			}	
+		}
+
+		.author {
+			margin-top: 20px;
+			line-height: 1.2;
+			text-align: left;
+			.name {
+				font-weight: 600;
+				font-size: 14px;
+			}
+
+			&.with-image {
+				position: relative;
+				margin-top: 30px;
+				padding-left: 74px;
+				img {
+					position: absolute;
+					top: -12px;
+					left: 0;
+					width: 58px;
+					height: 58px;
+					@include border-radius(50%);
+				}
+			}
+		}
+
+		&.testimonial-primary {
+			.quote {
+				color: $color-white;
+				background-color: $color-primary;
+
+				&:after {
+					border-color: transparent $color-primary transparent transparent;
+				}
+			}
+		}
+	}
+}
+
+.dark {
+	.testimonial-1 {
+		.author { border-color: $color-line-light; }
+	}
+	.testimonial-2 {
+		.quote {
+			background-color: $color-dark-transparent;
+			&:after {
+				position: absolute;
+				top: 100%;
+				right: 20px;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 38px 38px 0;
+				border-color: transparent $color-dark-transparent transparent transparent;
+				@include scaleX(0.4);
+				content: ' ';
+			}
+		}
+	}
+}

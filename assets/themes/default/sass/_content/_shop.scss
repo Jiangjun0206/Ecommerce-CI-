@@ -1,0 +1,144 @@
+/* Shop
+----------------------------------------------------------*/
+
+/* Product Box */
+
+.product-box {
+	margin-bottom: 40px;
+	background: $color-white;
+	@include border-radius(3px);
+
+	img {
+		@include transition(all 0.2s ease-out);
+	}
+
+	h5 {
+		margin-bottom: 0;
+	}
+	.price {
+		font-family: $font-secondary;
+		font-size: 14px;
+		@include opacity(0.5);
+	}
+	.rate {
+		margin-top: 10px;
+	}
+
+	&:hover {
+		img {
+			@include scale(0.9);
+		}
+	}
+}
+
+/* Product */
+
+.product {
+	.price {
+		font-size: 28px;
+		font-family: $font-secondary;
+		@include opacity(0.5);
+	}
+	.rate {
+		margin: 15px 0;
+		font-size: 18px;
+	}
+}
+
+/* Rate */ 
+
+.rate {
+	> * {
+		margin: 0 4px;
+		@include opacity(0.35);
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+	.active {
+		color: $color-gold;
+		@include opacity(1);
+	}
+}
+
+/* Cart */
+
+.cart {
+	margin-bottom: 40px; 
+
+	> tbody {
+		> tr {
+			> td, > th {
+				border-top: none;
+				border-bottom: 1px solid $color-line-grey;
+			}
+			> th {
+				font-size: 14px;
+				padding: 15px 8px;
+				font-weight: 600;
+			}
+			> td {
+				font-size: 18px;
+				vertical-align: middle !important;
+				font-weight: 500;
+
+				&.image {
+					width: 120px;
+					text-align: center;
+					img {
+						max-height: 140px;
+					}
+				}
+
+				&.title {
+					h2 {
+						font-size: 18px;
+						font-weight: 600;
+						margin-bottom: 0;
+					}
+				}
+
+				&.total {
+					color: $color-primary;
+				}
+
+				&.remove {
+					width: 50px;
+					text-align: right;
+
+					a {
+						@include opacity(0.5);
+
+						&:hover, &:focus {
+							@include opacity(1);
+						}
+					}
+				}
+
+			}
+
+			> *:nth-child(5) {
+				text-align: right;
+			}
+		}
+	}
+
+}
+
+/* Checkout */
+
+.order-total {
+	text-align: right;
+
+	.cost {
+		font-size: 24px;
+		display: block;
+		line-height: 1;
+		font-weight: 500;
+		color: $color-primary;
+	}
+}
+
+
+

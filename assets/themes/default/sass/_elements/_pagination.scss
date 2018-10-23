@@ -1,0 +1,59 @@
+/* Pagination
+----------------------------------------------------------*/
+
+.pagination {
+	> li {
+		> a, span {
+			@include border-radius(50%);
+			border: none !important;
+			width: 34px;
+			height: 34px;
+			text-align: center;
+			padding: 7px 3px;
+			font-family: $font-secondary;
+			font-size: 14px;
+			color: inherit;
+			background: transparent;
+
+			&:hover, &:focus {
+				background: transparent;
+				color: $color-primary;
+			}
+		}
+		&.active {
+			> a, span {
+				background: $color-primary;
+				color: $color-white;
+			}
+		}
+		&:first-child, &:last-child {
+			a {
+				top: 7px;
+				margin: 0 2px;
+				@include border-radius(50%);
+				background: rgba($color-black, 0.15);
+				color: #fff;
+				width: 20px;
+				height: 20px;
+				font-size: 10px;
+				color: #fff;
+				padding: 4px 0;
+				font-weight: 600;
+
+				&:hover {
+					background: rgba($color-black, 0.3);
+				}
+			}
+		}
+	}
+}
+
+html[dir="rtl"] {
+	.pagination {
+		> li {
+			&:first-child, &:last-child {
+				display: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,317 @@
+/* ---------------------------------------------------------------------------- */
+/* --- 3. WIDGETS
+/* ----------------------------------------------------------------------------- */
+
+.widget { 
+	margin-bottom: 50px;
+	font-size: 12px;
+
+	h6 {
+		font-size: 12px;
+		margin-bottom: 25px;
+	}
+
+	.owl-pagination .owl-page span { 
+		width: 7px;
+		height: 7px;
+	}
+}
+
+@media #{$screen-sm} {
+	.sidebar, footer {
+		.widget {
+			width: 46%;
+			margin-right: 8%;
+			float: left;
+			display: inline-block;
+
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+		}
+	}
+	html[dir="rtl"] {
+		.sidebar, footer {
+			.widget {
+				margin-left: 8%;
+				margin-right: 0;
+				float: right;
+
+				&:nth-child(2n) {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+
+@media #{$screen-xs} {
+	.sidebar, footer {
+		.widget {
+			width: 100%;
+			margin-right: 0;
+			float: none;
+			display: block;
+		}
+	}
+
+	html[dir="rtl"] {
+		.sidebar, footer {
+			.widget {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+/* Logo
+----------------------------------------------------------*/
+
+.widget-logo {
+	.logo {
+		margin: 60px auto;
+		max-width: 35%;
+	}
+}
+
+/* Products
+----------------------------------------------------------*/
+
+.list-products {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	> li {
+		position: relative;
+		border-bottom: 1px solid $color-line-dark;
+		padding-bottom: 25px;
+		margin-top: 25px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		.image {
+			position: absolute;
+			top: -15px;
+			left: 0;
+			max-width: 76px;
+			max-height: 90px;
+			float: left;
+		}
+
+		.content {
+			padding-left: 90px;
+			font-family: $font-secondary;
+			font-size: 13px;
+			line-height: 1.2;
+
+			> .price {
+				@include opacity(0.6);
+				display: block;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+/* Recent Posts
+----------------------------------------------------------*/
+
+.list-posts {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	> li {
+		margin-bottom: 15px;
+
+		> a {
+			font-family: $font-secondary;
+			font-size: 13px;
+			display: block;
+
+			&:after {
+				position: relative;
+				font-family: 'themify';
+				width: 15px;
+				height: 15px;
+				background: rgba(0,0,0,0.2);
+				color: #fff;
+				content: "\e628";
+				margin-left: 5px;
+				padding: 2px;
+				text-align: center;
+				vertical-align: middle;
+				font-size: 8px;
+				display: inline-block;
+				@include border-radius(50%);
+			}
+		}
+
+		> .date {
+			@include opacity(0.7);
+			font-size: 12px;
+		}
+	}
+}
+
+html[dir="rtl"]  .list-posts > li > a:after {
+	margin-left: 0;
+	margin-right: 5px;
+	content: "\e629";
+}
+
+.dark .list-posts > li > a:after {
+	background: rgba(255,255,255,0.2);
+}
+
+.dark .list-posts > li > a:after {
+	background: rgba(255,255,255,0.15);
+}
+
+/* Twitter
+----------------------------------------------------------*/
+
+.twitter-feed {
+	ul {
+		list-style: none;
+		margin: 0 0 0 0;
+		padding: 0;
+
+		li {
+			position: relative;
+			margin-bottom: 20px;
+
+			a {
+				font-weight: 600;
+			}
+
+			.date {
+				display: block;
+				font-size: 60%;
+				@include opacity(0.5);
+				margin-top: 4px;
+			}
+		}
+	}
+}
+
+.widget .twitter-feed ul {
+	margin-left: 20px;
+
+	li {
+		&:before {
+			position: absolute;
+		    top: -2px;
+		    left: -21px;
+		    font-size: 120%;
+			font-family: 'FontAwesome';
+			color: $color-twitter;
+			content: "\f099";
+		}
+
+		.date {
+			font-size: 95%;
+		}
+	}
+}
+
+html[dir="rtl"] .widget .twitter-feed ul {
+	margin-right: 20px;
+	margin-left: 0;
+
+	li {
+		&:before {
+		    right: -21px;
+		    left: auto;
+		}
+	}
+}
+
+
+/* Instagram
+----------------------------------------------------------*/
+
+.instagram-feed {
+	> a {
+		float: left;
+
+		> img {
+			width: 100%;
+		}
+
+		&:hover {
+			@include opacity(1);
+		}
+	}
+}
+
+.instagram-grid {
+	> a {	
+		float: left;			
+		width: 32%;
+		margin-right: 2%;
+		margin-bottom: 2%;
+		@include opacity(0.8);
+
+		> img {
+			width: 100%;
+		}
+
+		&:nth-child(3n) {
+			margin-right: 0;
+		}
+		
+		&:hover {
+			@include opacity(1);
+		}
+
+	} 
+	&.no-spacing {
+		a {
+			margin: 0;
+		}
+	}
+}
+
+
+/* Sidebar Widgets
+----------------------------------------------------------*/
+
+#content {
+	.widget {
+		h6 {
+			margin-bottom: 18px;
+		}
+		&.widget:not(.widget-search):not(.widget-newsletter) {
+			h6 {
+				border-bottom: 2px solid $color-line-dark;
+				padding-bottom: 8px;
+			}
+		}
+		&.widget-newsletter {
+			padding: 20px;
+			background: $color-grey;
+			input {
+				background: $color-white;
+			}
+		}
+	}
+	&.bg-grey {
+		.widget {
+			&.widget-newsletter {
+				background: $color-white;
+
+				input {
+					background: $color-grey-2;
+				}
+			}
+			&.widget-search input {
+				background: $color-white;
+				border-color: $color-white;
+			}
+		}
+	} 
+}

@@ -1,0 +1,38 @@
+@charset 'UTF-8';
+/* -----------------------------------------------------------------------------
+
+The Okno - Ultimate Multipurpose HTML5 Template
+
+File:           CSS Base
+Version:        1.1
+Last change:    10/06/15 
+Author:         Suelo
+
+Table of Contents:
+
+	1. Document Setup
+	2. Basic
+	3. Header 
+	4. Content 
+    5. Footer
+	6. Elements 
+    7. Widgets 
+	8. Animations 
+
+-------------------------------------------------------------------------------- */
+
+// Import CSS3 Mixins 
+@import "compass/css3";
+
+// Import Config 
+@import "config";
+
+// Import Styles
+@import "setup";
+@import "basics";
+@import "header";
+@import "content";
+@import "footer";
+@import "elements";
+@import "widgets";
+@import "animations";

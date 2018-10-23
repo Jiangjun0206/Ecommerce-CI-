@@ -1,0 +1,24 @@
+
+/* Events
+----------------------------------------------------------*/
+	
+.event {
+	margin-bottom: 40px;
+	
+	.date {
+		margin-bottom: 20px;
+		font-weight: 600;
+		font-size: 14px;
+
+		&:before {
+			position: relative;
+			top: 3px;
+			font-size: 150%;
+			margin-right: 10px;
+			font-family: 'FontAwesome';
+			color: $color-primary;
+			content: '\f017';
+			font-weight: 100;
+		}
+	}
+}

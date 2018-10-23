@@ -1,0 +1,74 @@
+/* Counters
+----------------------------------------------------------*/
+
+.counter {
+	margin-bottom: 40px;
+
+	&.bordered {
+		padding: 35px;
+		border: 1px solid $color-line-dark;
+	}
+
+	&.boxed {
+		padding: 35px;
+		background: $color-grey;
+	}
+}
+
+.counter-1 {
+	.number { font-size: 52px; }
+}
+
+.counter-2 {
+	.number { 
+		font-size: 42px; 
+		font-family: $font-secondary; 
+		line-height: 1.2;
+	}
+}
+
+.counter-3 {
+	.icon {
+		float: left;
+		margin-top: 5px;
+	}
+	.number {
+		font-size: 42px;
+		font-family: $font-secondary;  
+		line-height: 1.2;
+	}
+	.counter-content {
+		padding-left: 40px;
+	}
+}
+
+.counter-4 {
+	position: relative;
+	padding: 50px;
+	z-index: 0;
+
+	.counter-content {
+		position: relative;
+		z-index: 1;
+	}
+
+	.icon {
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 160px;
+		@include opacity(0.3);
+	}
+	.number {
+		font-size: 78px;
+		font-weight: 100;
+		line-height: 1;
+	}
+}
+
+.dark .counter-4 {
+	.icon {
+		color: $color-white !important;
+		@include opacity(0.1);
+	}
+}

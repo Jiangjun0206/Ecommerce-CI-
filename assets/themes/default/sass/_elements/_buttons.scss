@@ -1,0 +1,319 @@
+
+/* Buttons
+----------------------------------------------------------*/
+
+.btn {
+	position: relative;
+	font-family: $font-secondary;
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: 600;
+	@include border-radius(40px);
+	padding: 13px 28px 15px;
+	border: none;
+	color: inherit;
+	@include transition(all 0.2s ease-out);
+	outline: none;
+	border: 2px solid;
+	background: transparent;
+	margin-bottom: 3px;
+
+	i {
+		font-size: 130%;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&.btn-xs {
+		padding: 6px 20px 7px;
+	}
+	&.btn-sm {
+		padding: 10px 24px 11px;
+	}
+	&.btn-lg {
+		padding: 18px 32px 20px;
+		font-size: 12px;
+	}
+
+	&.btn-default { 
+		border-color: $color-grey-2;  
+		color: inherit;
+
+		&:hover, &:focus, &:active, &:active:focus, &:active:hover {
+			background-color: $color-grey-2;  
+			color: inherit;
+		}
+	}
+	&.btn-white { border-color: $color-white;  }
+
+	$k: 1;
+	@for $i from 1 through length($colorVersions)/2 {
+		$type: nth($colorVersions,$k);
+		$color: nth($colorVersions,$k+1);
+
+		&.btn-#{$type} {
+			border-color: $color;
+			&:hover, &:focus, &:active, &:active:focus, &:active:hover {
+				border-color: $color;
+				background-color: $color;
+			}
+		}
+		$k: $k+2;
+	}
+
+	$k: 1;
+	@for $i from 1 through length($socialBrands)/2 {
+		$type: nth($socialBrands,$k);
+		$color: nth($socialBrands,$k+1);
+
+		&.btn-#{$type} {
+			border-color: $color;
+			&:hover, &:focus, &:active, &:active:focus, &:active:hover {
+				border-color: $color;
+				background-color: $color;
+			}
+		}
+		$k: $k+2;
+	}
+
+	&:hover, &:focus {
+		color: $color-white;
+	}
+
+	&:focus:active, &:focus, &:active {
+		outline: none !important; 
+	}
+
+	&:active {
+		@include box-shadow(none);
+	}
+}
+
+html[dir="rtl"] .btn {
+	font-size: 13px;
+
+	&.btn-xs {
+		font-size: 12px;
+	}
+	&.btn-sm {
+		font-size: 12px;
+	}
+	&.btn-lg {
+		font-size: 14px;
+	}
+}
+
+.btn-filled {
+	color: $color-white;
+	&:hover, &:focus {
+		color: $color-white;
+	}
+
+	&.btn-white { 
+		background-color: $color-white;  
+		color: $color-primary;
+		&:hover, &:focus {
+			background-color: darken($color-primary,10%);
+			border-color: darken($color-primary,10%);
+			color: $color-white;
+		}
+	}
+
+	&.btn-default { 
+		background-color: $color-grey-2;  
+		color: $color-text-dark;
+		&:hover, &:focus, &:active, &:active:focus, &:active:hover {
+			color: $color-dark;
+			background-color: darken($color-grey-2,10%);
+			border-color: darken($color-grey-2,10%);
+		}
+	}
+
+	$k: 1;
+	@for $i from 1 through length($colorVersions)/2 {
+		$type: nth($colorVersions,$k);
+		$color: nth($colorVersions,$k+1);
+
+		&.btn-#{$type} {
+			background-color: $color;
+			&:hover, &:focus, &:active, &:active:focus, &:active:hover {
+				background-color: darken($color,10%);
+				border-color: darken($color,10%);
+			}
+		}
+		$k: $k+2;
+	}
+}
+
+.dark {
+	.btn.btn-default { 
+		border-color: $color-white; 
+		&:hover, &:focus { 
+			color: $color-dark;
+			background-color: $color-white; 
+		}
+	}
+}
+
+.btn-link {
+	border: none;
+	&:hover, &:focus {
+		color: inherit;
+		@include opacity(0.6);
+		text-decoration: none;
+	}
+}
+
+/* Submit Button */
+
+.btn-submit {
+	display: block;
+	text-align: center;
+	width: 100%;
+	background-color: transparent !important;
+	border: none;
+
+	&:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		font-size: 15px;
+		padding-top: 9px;
+		background-color: $color-primary;
+		border: 2px solid $color-primary;
+		@include border-radius(50px);
+		@include transition(all 0.5s ease-out);
+		content: ' ';
+	}
+
+	> * {
+		position: relative;
+		z-index: 2;
+		@include transition(all 0.2s ease-out);
+	}
+
+	&.loading {
+
+   		 -webkit-pointer-events: none;
+    	pointer-events: none;
+
+		> * {
+			opacity: 0 !important;
+			visibility: hidden;
+		}
+			
+		&:after {
+			width: 45px;
+			left: 50%;
+			margin-left: -23px;
+			@include animation(btnLoading 1.2s both 0.5s infinite);
+		}
+
+		&.success {
+			&:after {
+				font-family: 'themify';
+				background-color: $color-green;
+				border-color: $color-green;
+				@include animation(none);
+				content: "\e64c";
+			}
+		}
+
+		&.error {
+			&:after {
+				font-family: 'themify';
+				background-color: $color-red;
+				border-color: $color-red;
+				@include animation(none);
+				content: "\e646";
+			}
+		}
+	}
+
+	&.btn-sm {
+		&:after {
+			font-size: 13px;
+			padding-top: 8px;
+		}
+		&.loading:after {
+			width: 38px;
+			margin-left: -19px;
+		}
+	}
+
+	&.btn-lg {
+		&:after {
+			font-size: 17px;
+			padding-top: 14px;
+		}
+		&.loading:after {
+			width: 54px;
+			margin-left: -27px;
+		}
+	}
+}
+
+@include keyframes(btnLoading) {
+	0% { @include scale(1); }
+	12% { @include scale(0.7); }
+	38% { @include scale(1.1); }
+	62% { @include scale(0.8); }
+	87% { @include scale(1); }
+}
+
+/* Play Button */
+
+.btn-play {
+	position: relative;
+	display: inline-block;
+	font-size: 52px;
+	width: 72px;
+	height: 72px;
+	font-size: 22px;
+	vertical-align: middle;
+	margin-bottom: 3px;
+	color: $color-white;
+
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		@include border-radius(50%);
+		@include box-shadow(0px 5px 16px 0px rgba(0,0,0,0.5));
+		@include transition(all 0.3s ease-out);
+		content: ' ';
+		background: rgba($color-black,0.5);
+	}
+
+	&:after {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include translate3d(-50%,-50%,0);
+		@include filter(blur(0));
+		border-style: solid;
+		border-width: 6px 0 6px 10px;
+		border-color: transparent transparent transparent #ffffff;
+		content: ' ';
+	}
+
+	&:hover:before {
+		@include scale(1.2);
+	}
+
+	&.btn-lg {
+		width: 112px;
+		height: 112px;
+
+		&:after {
+			border-width: 10px 0 10px 18px;
+		}
+	}
+}
+
+
+

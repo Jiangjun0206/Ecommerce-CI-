@@ -1,0 +1,38 @@
+/* Notification Bar
+----------------------------------------------------------*/
+
+#notification-bar {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	color: $color-white;
+	z-index: 3;
+	@include translateY(-100%);
+	@include transition(all 0.5s ease-out);
+	visibility: hidden;
+
+	&.visible {
+		@include translateY(0);
+		visibility: visible;
+	}
+
+	> * {
+		display: inline-block;
+		text-align: center;
+		padding: 9px 10px;
+		display: block;
+	}
+
+	.close-it {
+		margin-left: 10px;
+		@include opacity(0.6);
+
+		&:hover {
+			@include opacity(1);
+		}
+	}
+
+	.success { background-color: $color-green; }
+	.error { background-color: $color-red; }
+}

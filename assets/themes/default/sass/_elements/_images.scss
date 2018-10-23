@@ -1,0 +1,26 @@
+/* Images
+----------------------------------------------------------*/
+
+.img-rounded {
+	@include border-radius(3px);
+}
+
+.gray-to-color {
+	@include transition(all 0.3s ease-out);
+	@include filter(grayscale(1));
+	@include opacity(.7);
+
+	&:hover {
+		@include filter(grayscale(0));
+		@include opacity(1);
+	}
+}
+
+.color-to-grey {
+    @include transition(all 0.3s ease-out);
+
+    &:hover {
+        @include filter(grayscale(1));
+        @include opacity(.7);
+    }
+}

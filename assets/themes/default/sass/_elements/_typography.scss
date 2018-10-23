@@ -1,0 +1,265 @@
+
+/* Typography 
+----------------------------------------------------------*/
+
+/* Fonts */
+
+.font-secondary { font-family: $font-secondary; }
+
+/* Headings */
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	margin-top: 0;
+	display: block;
+	font-family: $headings-font;
+
+	&.font-secondary {
+		font-weight: 400;
+	}
+} 
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+	font-weight: $headings-weight;
+}
+
+h1, .h1 { 
+	font-size: 48px;
+	margin-bottom: 22px;
+
+	@media #{$screen-xs} {
+		font-size: 38px; 
+	}
+
+	&.text-lg { 
+		font-size: 58px; 
+
+		@media #{$screen-sm} {
+			font-size: 48px; 
+		}
+
+		@media #{$screen-xs} {
+			font-size: 44px; 
+		}
+	}
+	&.text-xl { 
+		font-size: 96px;
+
+		@media #{$screen-sm} {
+			font-size: 72px; 
+		} 
+		@media #{$screen-xs} {
+			font-size: 48px; 
+		} 
+	}
+}
+
+h2, .h2 { 
+	font-size: 36px;
+	margin-bottom: 28px;
+
+	@media #{$screen-xs} {
+		font-size: 34px; 
+	}
+}
+
+h3, .h3 { 
+	font-size: 30px;
+	margin-bottom: 24px;
+}
+
+h4, .h4 { 
+	font-size: 24px;
+	margin-bottom: 18px;
+}
+
+h5, .h5 { 
+	font-size: 18px;
+	font-family: $font-secondary;
+	margin-bottom: 14px;
+}
+
+h6, h6 {
+	font-size: 13px;
+	font-family: $font-secondary;
+	margin-bottom: 12px;
+}
+
+@media #{$screen-sm} {
+	h1 {
+		font-size: 38px;
+		&.text-lg {	font-size: 48px; }
+		&.text-xl { font-size: 72px; }
+	}
+	h2 {
+		font-size: 34px;
+	}
+}
+
+@media #{$screen-sm} {
+	h1 {
+		&.text-xl { font-size: 60px; }
+	}
+}
+
+/* Paragraph */
+
+p {
+	font-size: 13px;
+	font-weight: 400;
+	margin-bottom: 25px;
+}
+
+p.lead {
+	font-size: 16px;
+	margin-bottom: 25px;
+
+	&.text-lg {
+		font-size: 24px;
+		margin-bottom: 35px;
+	}
+}
+
+/* Address */
+
+address {
+	margin-bottom: 25px;
+}
+
+/* Blockquote */
+
+blockquote {
+	background-color: $color-grey;
+	padding: 25px;
+	border: none;
+
+	p {
+		font-size: 24px;
+		font-weight: 100;
+		line-height: 1.2;
+		margin-bottom: 15px;
+	}
+
+	footer {
+		font-size: 11px;
+		text-transform: uppercase;
+		font-family: $font-secondary;
+		color: $color-text-muted-dark;
+	}
+}
+
+/* Sizes */
+
+.text-xs { font-size: 11px; }
+.text-sm { font-size: 12px; }
+.text-md { font-size: 14px; }
+.text-lg { font-size: 16px; }
+
+/* Colors */
+
+$k: 1;
+@for $i from 1 through length($colorVersions)/2 {
+	$type: nth($colorVersions,$k);
+	$color: nth($colorVersions,$k+1);
+
+	.text-#{$type} {
+		color: $color;
+	}
+	$k: $k+2;
+}
+
+.text-muted { color: $color-text-muted-dark; }
+.text-muted-2x { color: $color-text-muted-dark-2; }
+.text-muted-3x { color: $color-text-muted-dark-3; }
+.text-dark { color: $color-text-dark; }
+
+.dark .text-muted { color: $color-text-muted-light;  }
+.dark .text-muted-2x { color: $color-text-muted-light-2;  }
+.dark .text-muted-3x { color: $color-text-muted-light-3;  }
+
+a.text-primary {
+	&:hover, &:focus {
+		color: darken($color-primary,10%);
+	}
+}
+
+/* Description */
+
+dl.description-2 {
+	font-family: $font-secondary;
+	dt { 
+		font-size: 12px;
+		@include opacity(0.5);
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+	dd {
+		font-size: 16px;
+		margin-bottom: 20px;
+	}
+}
+
+/* Links */
+
+.link-underline {
+	position: relative;
+
+	&:after {
+		position: absolute;
+		bottom: -2%;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		content: ' ';
+		background-color: $color-dark;
+		@include transition(all 0.2s ease-out);
+
+	}
+
+	&:hover, &:focus {
+		&:after {
+			@include scaleX(1.1);
+		}
+	}
+}
+
+.dark .link-underline:after { background-color: $color-white; }
+.link-underline.text-primary:after { background-color: $color-primary; }
+
+/* Helper Classes */
+
+.text-spacing {
+	letter-spacing: 0.2em;	
+}
+
+.text-bg {
+	display: inline-block;
+	padding: 0.2em 0.3em 0.25em;
+
+	&.rounded {
+		@include border-radius(3px);
+	}
+}
+
+/* Lists */
+
+.list-lined {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	> li {
+		margin-bottom: 8px;
+		padding-bottom: 8px;
+		border-bottom: 1px dashed $color-line-dark;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
+.dark .list-lined > li {
+	border-color: $color-line-light;
+}
+
+

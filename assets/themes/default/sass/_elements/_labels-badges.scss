@@ -1,0 +1,36 @@
+/* Badges
+----------------------------------------------------------*/
+
+.badge {
+	font-size: 11px;
+	padding: 3px 5.5px;
+	font-family: $font-secondary;
+	font-weight: normal;
+}
+
+.label {
+    font-family: $font-secondary;
+    text-transform: uppercase;
+    color: $color-white;
+    border: none;
+    @include border-radius(3px);    
+    padding: 0.7em .9em .8em;
+    font-size: 80%;
+    display: inline-block;
+    vertical-align: middle;
+
+    &.label-default {
+        color: $color-text-dark;
+    }
+
+    $k: 1;
+    @for $i from 1 through length($colorVersions)/2 {
+        $type: nth($colorVersions,$k);
+        $color: nth($colorVersions,$k+1);
+
+        &.label-#{$type} {
+            background-color: $color;
+        }
+        $k: $k+2;
+    }
+}

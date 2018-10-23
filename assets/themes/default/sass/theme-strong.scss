@@ -1,0 +1,13 @@
+@charset 'UTF-8';
+
+// Fonts 
+$font-primary: "Open Sans",Helvetica,Arial,sans-serif;
+$font-secondary: "Montserrat",Helvetica,Arial,sans-serif;
+
+$headings-font: $font-secondary;
+
+// Colors:
+$color-primary: #ea462b;
+$color-secondary: #1f1f1f; 
+
+@import "_base";

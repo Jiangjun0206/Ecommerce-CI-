@@ -1,0 +1,109 @@
+/* ---------------------------------------------------------------------------- */
+/* --- 3. HEADER
+/* ----------------------------------------------------------------------------- */
+
+#header {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $header-height;
+	z-index: 900;
+
+	&.absolute {
+		position: absolute;
+	}
+
+	&.fullwidth {
+		#nav-bar, #top-bar {
+			padding-left: 50px;
+			padding-right: 50px;
+
+			@media #{$screen-md} {
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+
+			@media #{$screen-sm} {
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+		}
+		.megamenu {
+			.banner-last { 
+				margin-right: -60px; 
+			}
+			@media #{$screen-sm} { 
+				.row { margin: 0 !important; }
+			}
+		}
+
+
+	}
+
+	&.fixed {
+		position: fixed;
+		width: 100%;
+		visibility: hidden;
+		@include opacity(0);
+		@include translateY(-100%);
+
+		#top-bar {
+			margin-top: -40px;
+		}
+	}
+
+	&.out {
+		visibility: visible;
+		@include opacity(1);
+		@include transition(all 0.3s ease-out);
+
+		#nav-bar .module .notification {
+			@include translateY(-4px);
+		}
+	}
+
+	&.out.sticky {
+		@include translateY(0);
+
+		#nav-bar .module .notification {
+			@include translateY(0);
+		}
+	}
+
+	&.dark {
+		color: $color-white;
+	}
+
+	&:not(.out).transparent {
+		color: $color-white;
+
+		&.out {
+			background-color: $color-dark;
+		}
+	}
+
+}
+
+
+body.header-absolute {
+	#content section:first-child {
+		padding-top: 140px;
+	}
+}
+
+html[dir="rtl"] {
+	#header.fullwidth .megamenu .banner-last { 
+		margin-left: -60px; 
+		margin-right: 0;
+	}
+}
+
+@import "_header/navigation-bar";
+@import "_header/navigation-primary";
+@import "_header/navigation-mobile";
+@import "_header/notification-bar";
+@import "_header/filter-bar";
+@import "_header/search-bar";
+@import "_header/top-bar";
+

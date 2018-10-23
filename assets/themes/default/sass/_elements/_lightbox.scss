@@ -1,0 +1,100 @@
+/* Lightbox
+----------------------------------------------------------*/
+
+.lightboxOverlay {
+	@include opacity(0.7);
+}
+
+.lb-loader {
+	@extend .loader-2;
+	position: absolute !important;
+	top: 50%;
+	left: 50%;
+	@include translate3d(-50%, -50%, 0);
+}
+
+.lb-data {
+	color: $color-white;
+	font-family: $font-secondary;
+
+	.lb-details {
+		width: 100%;
+		margin-top: 10px;
+		float: none;
+
+		.lb-caption {
+			font-size: 14px;
+			font-weight: 400;
+		}
+		.lb-number {
+			font-size: 12px;
+			float: right;
+		}
+	}
+}
+
+.lb-nav {
+	.lb-prev, .lb-next {
+		position: absolute;
+		width: 50%;
+		@include opacity(0.5);
+		@include transition(all 0.2s ease-out);
+
+		&:after {
+			position: absolute;
+			top: 50%;
+			content: ' ';
+			width: 0;
+			height: 0;
+			border-style: solid;
+		}
+
+		&:hover {
+			@include opacity(0.85);
+		}
+	}
+	.lb-prev {
+		left: 0;
+
+		&:after {
+			left: -50px;
+			border-width: 7.5px 13px 7.5px 0;
+			border-color: transparent #ffffff transparent transparent;
+		}
+	}
+	.lb-next {
+		right: 0;
+
+		&:after {
+			right: -50px;
+			border-width: 7.5px 0 7.5px 13px;
+			border-color: transparent transparent transparent #ffffff;
+		}
+	}
+}
+
+.lb-close {
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	display: block;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+
+	&:after {
+		color: $color-white;
+		font-family: themify; 
+		content:"\e646";
+		font-size: 28px;
+		width: 40px;
+		height: 40px;
+		@include opacity(0.5);
+		@include transition(all 0.2s ease-out);
+	}
+
+	&:hover:after {
+		@include opacity(0.85);
+	}
+}
+

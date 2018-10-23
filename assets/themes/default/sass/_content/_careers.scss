@@ -1,0 +1,31 @@
+/* Carriers
+----------------------------------------------------------*/
+	
+.career-group {
+	.career-group-title {
+		font-family: $font-secondary;
+		font-size: 11px;
+		font-weight: 600;
+		color: $color-text-muted-dark;
+		background-color: $color-grey;
+		padding: 9px;
+		text-align: center;
+		text-transform: uppercase;
+		margin-bottom: 40px;
+	}	
+}
+
+.career {
+	margin-bottom: 40px; 
+	padding-bottom: 40px;
+	border-bottom: 1px solid $color-line-dark;
+
+	.title {
+		margin-bottom: 5px;
+	}
+	.details {
+		margin-bottom: 0;
+	}
+
+	&:last-child { border-bottom: none; }
+}
